@@ -11,8 +11,6 @@ target
 .classpath
 .project
 .gradle
-gradlew
-gradlew.bat
 
 # Vim Backup/Swap Files
 *~
