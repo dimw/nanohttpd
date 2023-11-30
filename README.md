@@ -1,3 +1,26 @@
+> [!IMPORTANT]
+> **This is a fork of the original NanoHTTPD project.** The original project is no longer maintained. This fork includes the following changes:
+> - Security fixes (CVE) on dependencies provided by [Dependabot](https://github.com/dependabot) (check if there are [any open PRs](https://github.com/dimw/nanohttpd/pulls))
+> - Support for Gradle up to v8.5
+> - Configuration for GitHub Actions CI:
+>   - Build on Pull Requests
+>   - Publish to [GitHub Packages](https://github.com/features/packages) on release
+>
+> #####  Usage in Gradle:
+> ```kotlin
+> repositories {
+>   // ...
+>   // Add jitpack.io registry to build from GitHub
+>   maven { url = uri("https://jitpack.io") }  
+> }
+> 
+> dependencies {
+>   // ...
+>   // Use the latest snapshot
+>   implementation("com.github.dimw:nanohttpd:master-SNAPSHOT")
+> }
+> ```
+
 ## NanoHTTPD – a tiny web server in Java
 
 *NanoHTTPD* is a light-weight HTTP server designed for embedding in other applications, released under a Modified BSD licence.

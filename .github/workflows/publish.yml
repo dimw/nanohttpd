@@ -1,3 +1,4 @@
+# Source: https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-gradle#publishing-packages-to-github-packages
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -7,10 +8,11 @@
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
 
-name: Build package
+name: Publish package to GitHub Packages
 on:
-  pull_request:
-      types: [opened, synchronize, reopened]
+  release:
+    types: [created]
+  pull_request_target:
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -28,4 +30,6 @@ jobs:
       - name: Publish package
         uses: gradle/gradle-build-action@749f47bda3e44aa060e82d7b3ef7e40d953bd629
         with:
-          arguments: build
+          arguments: publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
